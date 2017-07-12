@@ -14,6 +14,30 @@ $color-bg-light: #009fe1;
 $font-stack-primary: 'Raleway', sans-serif;
 $font-stack-secondary: 'Bree Serif', serif;
 
+$max-width: 1000px;
+
+// MIXINS ------------------------------------ /
+
+@mixin skewed {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50px; 
+    position: absolute;
+    transform: skewY(-2deg);
+    @content;
+  }
+}
+
+@mixin center {
+  width: 90%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* BASE ------------------------------------------- */
 
 * {
@@ -47,14 +71,22 @@ p {
   }
 }
 
+a {
+  color: $color-primary;
+  text-decoration: none;
+  &:hover {
+    color: $color-secondary;  
+  }
+}
+
 /* HEADER & FOOTER -------------------------------- */
 
 header {
   height: 460px;
-  background: linear-gradient($color-bg-light, $color-bg), url('../img/bg.jpg') no-repeat;
+  background: linear-gradient($color-bg-light, $color-bg), 
+              url('../img/bg.jpg') no-repeat;
   background-blend-mode: multiply;
   background-size: cover;
-  position: relative;
   h1 {
     color: $white;
     font-size: 4.8em;
@@ -66,16 +98,10 @@ header {
     font-size: 1.25em;
     margin: 0;
   }
-  &::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 50px; 
-  position: absolute;
-  transform: skewY(-2deg);
-  background-color: $white;
-  bottom: -25px;
-  } 
+  @include skewed {
+    background-color: $white;
+    bottom: -25px;
+  }
 }
 
 footer {
@@ -83,17 +109,10 @@ footer {
   height: 100px;
   background-color: $color-shade;
   margin-top: 3.5em;
-  position: relative; 
-  &::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 50px; 
-  position: absolute;
-  transform: skewY(-2deg);
-  background-color: $color-shade;
-  top: -25px;
-  } 
+  @include skewed {
+    background-color: $color-shade;
+    top: -25px;
+  }
 }
 
 
@@ -122,8 +141,9 @@ footer {
     text-decoration: none;
     text-transform: uppercase;
     padding: 0.5em;
-      &:hover {
-      color: $color-accent;
+    transition: 0.3s;
+    &:hover {
+      color: $color-accent;  
     }
   }
 }
@@ -153,26 +173,31 @@ footer {
   }
 }
 
-.btn {
+.btn-callout {
+  font-size: 1.1em;
+  background-color: $color-secondary;
+  
   color: $white;
   display: inline-block;
-  font-size: 0.85em;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
   padding: 0.75em 1.5em;
   border-radius: 0.35em;
+}
+
+.btn-info {
+  font-size: 0.85em;
   background-color: $color-primary;  
   margin-top: auto;
-  &-callout {
-    font-size: 1.13em;
-    background-color: $color-secondary;
-  }
-  &-info {
-    font-size: 0.85em;
-    background-color: $color-primary;
-    margin-top: auto;
-  }
+  
+  color: $white;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.75em 1.5em;
+  border-radius: 0.35em;
 }
 
 
@@ -202,9 +227,7 @@ footer {
 
 @media (min-width: 768px) {
   .main-content {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
+    @include center;
   }
 }
 
