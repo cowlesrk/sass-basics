@@ -14,7 +14,11 @@
     line-height: 1.25;
   }
   @media (min-width: $break-s) {
-    flex: 1;
+    flex: 1 per-line(2);
+    margin: $gutter;
+  }
+  @media (min-width: $break-l) {
+    flex-basis: per-line(3);
   }
 }
 

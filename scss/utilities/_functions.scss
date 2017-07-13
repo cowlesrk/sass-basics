@@ -2,3 +2,28 @@
 //  Functions
 // ======================================
 
+// Example
+
+@function px-to-pc($target, $context: $max-width) {
+	@return ($target / $context) * 100%;
+}
+
+$base-font-size: 16px;
+
+// Converts pixels to rem
+
+@function px-to-rem($target, $context: $base-font-size) {
+@return ($target / $context) * 1rem;
+}
+
+h1 {
+font-size: px-to-rem(60px);
+}
+
+// Flexbox gutter function
+
+@function per-line($items) {
+	$g-pct: px-to-pc($gutter) * 2;
+	$g-total: $items * $g-pct;
+	@return (100% / $items) - $g-total;
+}

@@ -1,3 +1,6 @@
+h1 {
+  font-size: 3.75rem; }
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -502,7 +505,11 @@ header {
     line-height: 1.25; }
   @media (min-width: 576px) {
     .card {
-      flex: 1; } }
+      flex: 1 46%;
+      margin: 10px; } }
+  @media (min-width: 992px) {
+    .card {
+      flex-basis: 27.33333%; } }
 
 footer {
   padding: 2em 0 0;
