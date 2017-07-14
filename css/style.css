@@ -441,7 +441,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   flex-wrap: wrap; }
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     .main-content {
       width: 90%;
       max-width: 1000px;
@@ -456,7 +456,7 @@ a {
   padding: 1em 1em 3em; }
   .intro p {
     font-size: 1.2em; }
-  @media (max-width: 992px) {
+  @media (min-width: 992px) {
     .intro {
       width: 45%; } }
 
