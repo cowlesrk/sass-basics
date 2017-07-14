@@ -49,7 +49,11 @@
   $value: map-get($breakpoints, $break);
   $sm: map-get($breakpoints, "sm");
 
-  @if $value < $sm {
+  @if $value == null {
+    @error "'#{$break}' is not a valid breakpoint name";
+  }
+
+  @else if $value < $sm {
     @media (max-width: $value) {
       @content;
     }
