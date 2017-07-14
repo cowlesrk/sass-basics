@@ -6,7 +6,7 @@
 .main-content {
   @include flexy($wrap: wrap);
   flex-wrap: wrap;
-    @media (min-width: $break-m) {
+    @include mq("med") {
       @include center(90%);
     }
 
@@ -26,7 +26,7 @@
   p {
     font-size: 1.2em; 
   }  
-  @media (min-width: $break-l) {
+  @include mq("lg") {
     width: 45%;
   }
 
