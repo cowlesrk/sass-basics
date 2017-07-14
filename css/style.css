@@ -439,6 +439,7 @@ a {
 
 .main-content {
   display: flex;
+  flex-wrap: wrap;
   flex-wrap: wrap; }
   @media (min-width: 768px) {
     .main-content {
@@ -494,6 +495,8 @@ header {
       background-position: 0 0, 0 45%; } }
 
 .card {
+  display: flex;
+  flex-direction: column;
   display: flex;
   flex-direction: column;
   padding: 1.5em 1em;
@@ -571,6 +574,7 @@ footer {
 
 .img-featured {
   width: 165px;
+  height: 165px;
   border: 4px solid #fff;
   border-radius: 50%;
   margin-top: 75px;
